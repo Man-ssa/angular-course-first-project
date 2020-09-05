@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +6,13 @@ import {Component} from '@angular/core';
 })
 export class HeaderComponent {
 
+  @Output() menuClicked = new EventEmitter<number>();
+
+  onRecipesClicked(): void {
+    this.menuClicked.emit(1);
+  }
+
+  onShoppingListClicked(): void {
+    this.menuClicked.emit(2);
+  }
 }
